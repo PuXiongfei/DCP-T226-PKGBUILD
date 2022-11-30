@@ -1,0 +1,21 @@
+pkgname=brother-dcpt226
+pkgver=3.5.0
+pkgrel=1
+pkgdesc="Brother printer driver (lpd/cups) for DCP-T226"
+arch=('i686' 'x86_64')
+url="https://support.brother.com/g/b/downloadlist.aspx?c=cn&lang=zh&prod=dcpt226_all&os=128&flang=English"
+license=('custom:brother')
+groups=('')
+options=('!strip' '!emptydirs')
+install=${pkgname}.install
+source=("https://download.brother.com/pub/com/linux/linux/packages/dcpt226pdrv-3.5.0-1.i386.deb")
+sha256sums=('dcpt226pdrv-3.5.0-1.i386.deb')
+
+package() {
+    tar -xz -f data.tar.gz -C "${pkgdir}"
+
+    ln -s $pkgdir/opt/brother/Printers/dcpt226/lpd/$CARCH/brdcpt226filter $pkgdir/opt/brother/Printers/dcpt226/lpd/brdcpt226filter
+    ln -s $pkgdir/opt/brother/Printers/dcpt226/lpd/$CARCH/brprintconf_dcpt226 $pkgdir/opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
+
+    install -D -m644 "${pkgdir}/opt/brother/Printers/dcpt226/LICENSE_ENG.txt" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

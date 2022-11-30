@@ -1,0 +1,25 @@
+post_install() {
+    /opt/brother/Printers/dcpt226/inf/setupPrintcapij dcpt226 -i
+    /opt/brother/Printers/dcpt226/cupswrapper/cupswrapperdcpt226
+    chmod 755 /opt/brother/Printers/dcpt226/cupswrapper
+
+    if [ ! -e /usr/bin/brprintconf_dcpt226 ]; then
+        ln -s /opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226 /usr/bin/brprintconf_dcpt226
+    fi
+}
+
+post_upgrade() {
+    post_install
+}
+
+pre_remove() {
+    rm -f /tmp/dcpt226_latest_print_info
+}
+
+post_remove() {
+    /opt/brother/Printers/dcpt226/cupswrapper/cupswrapperdcpt226 -e
+    /opt/brother/Printers/dcpt226/inf/setupPrintcapij dcpt226 -e
+    unlink /opt/brother/Printers/dcpt226/lpd/brdcpt226filter
+    unlink /opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
+    unlink /usr/bin/brprintconf_dcpt226
+}
