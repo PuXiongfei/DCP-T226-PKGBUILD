@@ -10,7 +10,7 @@ groups=('')
 options=('!strip' '!emptydirs')
 install=${pkgname}.install
 source=("https://download.brother.com/pub/com/linux/linux/packages/dcpt226pdrv-3.5.0-1.i386.deb")
-sha256sums=('dcpt226pdrv-3.5.0-1.i386.deb')
+sha256sums=('951c9d46c29701c37e2f223b0cd5904efaf68768410d1a74b3b39813971bb9d3')
 
 package() {
     tar -xz -f data.tar.gz -C "${pkgdir}"
