@@ -19,4 +19,7 @@ package() {
     cp -a ${pkgdir}/opt/brother/Printers/dcpt226/lpd/$CARCH/brprintconf_dcpt226 ${pkgdir}/opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
 
     find ${pkgdir}/opt/brother/Printers/dcpt226/lpd/* -type d | xargs rm -rf
+
+    sed -i 's/mkdir $SPOOLER_NAME/mkdir -p $SPOOLER_NAME/' ${pkgdir}/opt/brother/Printers/dcpt226/inf/setupPrintcapij
+    sed -i 's/chown lp $SPOOLER_NAME/chown root $SPOOLER_NAME/' ${pkgdir}/opt/brother/Printers/dcpt226/inf/setupPrintcapij
 }
