@@ -18,5 +18,5 @@ package() {
     cp -a ${pkgdir}/opt/brother/Printers/dcpt226/lpd/$CARCH/brdcpt226filter ${pkgdir}/opt/brother/Printers/dcpt226/lpd/brdcpt226filter
     cp -a ${pkgdir}/opt/brother/Printers/dcpt226/lpd/$CARCH/brprintconf_dcpt226 ${pkgdir}/opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
 
-    find ${pkgdir}/opt/brother/Printers/dcpt226/lpd -type d | xargs rm -rf
+    find ${pkgdir}/opt/brother/Printers/dcpt226/lpd/ -type d | xargs rm -rf
 }
