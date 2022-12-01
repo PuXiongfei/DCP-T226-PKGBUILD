@@ -14,8 +14,6 @@ sha256sums=('dcpt226pdrv-3.5.0-1.i386.deb')
 package() {
     tar -xz -f data.tar.gz -C "${pkgdir}"
 
-    ln -s $pkgdir/opt/brother/Printers/dcpt226/lpd/$CARCH/brdcpt226filter $pkgdir/opt/brother/Printers/dcpt226/lpd/brdcpt226filter
-    ln -s $pkgdir/opt/brother/Printers/dcpt226/lpd/$CARCH/brprintconf_dcpt226 $pkgdir/opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
-
-    install -D -m644 "${pkgdir}/opt/brother/Printers/dcpt226/LICENSE_ENG.txt" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    ln -s /opt/brother/Printers/dcpt226/lpd/$CARCH/brdcpt226filter /opt/brother/Printers/dcpt226/lpd/brdcpt226filter
+    ln -s /opt/brother/Printers/dcpt226/lpd/$CARCH/brprintconf_dcpt226 /opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
 }

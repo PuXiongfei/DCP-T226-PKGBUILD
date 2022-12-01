@@ -13,13 +13,14 @@ post_upgrade() {
 }
 
 pre_remove() {
-    rm -f /tmp/dcpt226_latest_print_info
-}
-
-post_remove() {
     /opt/brother/Printers/dcpt226/cupswrapper/cupswrapperdcpt226 -e
     /opt/brother/Printers/dcpt226/inf/setupPrintcapij dcpt226 -e
     unlink /opt/brother/Printers/dcpt226/lpd/brdcpt226filter
     unlink /opt/brother/Printers/dcpt226/lpd/brprintconf_dcpt226
     unlink /usr/bin/brprintconf_dcpt226
+}
+
+post_remove() {
+    rm -f /tmp/dcpt226_latest_print_info
+    systemctl restart cups
 }
