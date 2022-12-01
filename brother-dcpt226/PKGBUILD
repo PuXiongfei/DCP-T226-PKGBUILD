@@ -3,7 +3,7 @@ pkgver=3.5.0
 pkgrel=1
 pkgdesc="Brother printer driver (lpd/cups) for DCP-T226"
 arch=('i686' 'x86_64')
-depends=('a2ps','cups')
+depends=('a2ps' 'cups')
 depends_x86_64=('lib32-glibc')
 url="https://support.brother.com/g/b/downloadlist.aspx?c=cn&lang=zh&prod=dcpt226_all&os=128&flang=English"
 license=('custom:brother')
